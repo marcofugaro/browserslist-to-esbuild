@@ -1,65 +1,51 @@
-# node-module-boilerplate
+# browserslist-to-esbuild
 
-> Boilerplate to kickstart creating a Node.js module
+> Use [browserslist](https://github.com/browserslist/browserslist) with [esbuild](https://esbuild.github.io/).
 
-This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
-
-Also check out [`node-cli-boilerplate`](https://github.com/sindresorhus/node-cli-boilerplate).
-
-## Getting started
-
-**Click the "Use this template" button.**
-
-Alternatively, create a new directory and then run:
-
-```
-$ curl -fsSL https://github.com/sindresorhus/node-module-boilerplate/archive/main.tar.gz | tar -xz --strip-components=1
-```
-
-There's also a [Yeoman generator](https://github.com/sindresorhus/generator-nm).
-
----
-
-**Remove everything from here and above**
-
----
-
-# unicorn-fun
-
-> My awesome module
+Allows you to use use browserslist and pass the correct browsers to esbuild's [target](https://esbuild.github.io/api/#target) option.
 
 ## Install
 
 ```
-$ npm install unicorn-fun
+npm install --save-dev browserslist-to-esbuild
+```
+
+or
+
+```
+yarn add --dev browserslist-to-esbuild
 ```
 
 ## Usage
 
-```js
-import unicornFun from 'unicorn-fun';
+You can call `browserslistToEsbuild()` directly in your `esbuild.mjs` script, it will look for your browserslist config in either `package.json` or the `.browserslistrc`.
 
-unicornFun('unicorns');
-//=> 'unicorns & rainbows'
+It will return an esbuild-compatible array of browsers.
+
+```js
+import { build } from 'esbuild'
+import browserslistToEsbuild from 'browserslist-to-esbuild'
+
+build({
+  entryPoints: ['input.js'],
+  outfile: 'output.js',
+  bundle: true,
+  target: browserslistToEsbuild(), // --> ["chrome79", "edge92", "firefox91", "safari13.1"]
+}).catch(() => process.exit(1))
+```
+
+Otherwise, you can pass yourself a browserslist array or string to the function.
+
+```js
+browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])
 ```
 
 ## API
 
-### unicornFun(input, options?)
+### browserslistToEsbuild(browserslistConfig?)
 
-#### input
+#### browserslistConfig
 
-Type: `string`
+Type: `array | string | undefined`
 
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
+An array of string of browsers [compatible with browserslist](https://github.com/browserslist/browserslist#full-list). If none is passed, a browserslist config is searched in the script running directory.

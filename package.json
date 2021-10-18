@@ -1,32 +1,35 @@
 {
-	"name": "unicorn-fun",
+	"name": "browserslist-to-esbuild",
 	"version": "0.0.0",
-	"description": "My awesome module",
+	"description": "Use browserslist with esbuild",
 	"license": "MIT",
-	"repository": "YOUR-GITHUB-USERNAME/unicorn-fun",
+	"repository": "marcofugaro/browserslist-to-esbuild",
 	"author": {
-		"name": "YOUR NAME",
-		"email": "YOUR EMAIL",
-		"url": "YOUR WEBSITE"
+		"name": "Marco Fugaro",
+		"email": "marco.fugaro@gmail.com",
+		"url": "https://marcofuga.ro"
 	},
-	"type": "module",
+	"keywords": [
+		"browserslist",
+		"browserlist",
+		"esbuild",
+		"browsers"
+	],
+	"type": "commonjs",
 	"exports": "./index.js",
 	"engines": {
 		"node": ">=12"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "ava"
 	},
 	"files": [
-		"index.js"
+		"src/"
 	],
-	"keywords": [
-		"unicorn",
-		"fun"
-	],
-	"dependencies": {},
+	"dependencies": {
+		"browserslist": "^4.17.3"
+	},
 	"devDependencies": {
-		"ava": "^3.15.0",
-		"xo": "^0.37.0"
+		"ava": "^3.15.0"
 	}
 }
