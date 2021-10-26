@@ -16,7 +16,7 @@
 		"browsers"
 	],
 	"type": "commonjs",
-	"exports": "./index.js",
+	"exports": "./src/index.js",
 	"engines": {
 		"node": ">=12"
 	},
