@@ -1,6 +1,6 @@
 {
 	"name": "browserslist-to-esbuild",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Use browserslist with esbuild",
 	"license": "MIT",
 	"repository": "marcofugaro/browserslist-to-esbuild",
