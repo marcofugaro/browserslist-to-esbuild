@@ -16,6 +16,7 @@
 		"browsers"
 	],
 	"type": "commonjs",
+	"typings": "./src/index.d.ts",
 	"main": "./src/index.js",
 	"exports": "./src/index.js",
 	"engines": {
