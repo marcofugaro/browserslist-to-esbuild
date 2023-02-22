@@ -1,37 +1,37 @@
 {
-	"name": "browserslist-to-esbuild",
-	"version": "1.2.0",
-	"description": "Use browserslist with esbuild",
-	"license": "MIT",
-	"repository": "marcofugaro/browserslist-to-esbuild",
-	"author": {
-		"name": "Marco Fugaro",
-		"email": "marco.fugaro@gmail.com",
-		"url": "https://marcofuga.ro"
-	},
-	"keywords": [
-		"browserslist",
-		"browserlist",
-		"esbuild",
-		"browsers"
-	],
-	"type": "commonjs",
-	"main": "./src/index.js",
-	"exports": "./src/index.js",
-	"types": "./src/index.d.ts",
-	"engines": {
-		"node": ">=12"
-	},
-	"scripts": {
-		"test": "ava"
-	},
-	"files": [
-		"src/"
-	],
-	"dependencies": {
-		"browserslist": "^4.17.3"
-	},
-	"devDependencies": {
-		"ava": "^3.15.0"
-	}
+  "name": "browserslist-to-esbuild",
+  "version": "1.2.0",
+  "description": "Use browserslist with esbuild",
+  "license": "MIT",
+  "repository": "marcofugaro/browserslist-to-esbuild",
+  "author": {
+    "name": "Marco Fugaro",
+    "email": "marco.fugaro@gmail.com",
+    "url": "https://marcofuga.ro"
+  },
+  "keywords": [
+    "browserslist",
+    "browserlist",
+    "esbuild",
+    "browsers"
+  ],
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "exports": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "files": [
+    "src/"
+  ],
+  "peerDependencies": {
+    "browserslist": "^4.17.3"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0"
+  }
 }
