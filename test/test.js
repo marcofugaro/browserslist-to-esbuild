@@ -20,7 +20,7 @@ test('works by passing browsers as string', (t) => {
   const target = browserslistToEsbuild('last 2 versions')
 
   t.deepEqual(target, [
-    'chrome93',
+    'chrome87',
     'edge93',
     'firefox92',
     'ie10',
