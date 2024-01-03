@@ -65,7 +65,8 @@ function browserslistToEsbuild(browserslistConfig) {
       })
       // only get the ones supported by esbuild
       .filter((b) => SUPPORTED_ESBUILD_TARGETS.includes(b[0]))
-      // only get the oldest version
+      // only get the oldest version, assuming that the older version
+      // is last in the array
       .reduce((acc, b) => {
         const existingIndex = acc.findIndex((br) => br[0] === b[0])
 
