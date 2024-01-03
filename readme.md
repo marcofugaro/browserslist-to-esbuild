@@ -51,3 +51,21 @@ browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])
 Type: `array | string | undefined`
 
 An array of string of browsers [compatible with browserslist](https://github.com/browserslist/browserslist#full-list). If none is passed, a browserslist config is searched in the script running directory.
+
+## CLI
+
+You can also use this package on the cli to test out the command in your project.
+If no argument is passed, the browserslist config is searched in the script running directory.
+
+Here is some example usage:
+
+```bash
+$ npx browserslist-to-esbuild
+chrome109 edge118 firefox115 ios15.6 opera102 safari15.6
+
+$ npx browserslist-to-esbuild '>0.2%, not dead'
+chrome103 edge87 firefox115 ios12.2 opera102 safari14.1
+
+$ npx browserslist-to-esbuild '>0.2%' 'not dead'
+chrome103 edge87 firefox115 ios12.2 opera102 safari14.1
+```
