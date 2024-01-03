@@ -11,7 +11,17 @@ function browserslistToEsbuild(browserslistConfig) {
     browserslistConfig = browserslist.loadConfig({ path })
   }
 
-  const SUPPORTED_ESBUILD_TARGETS = ['es', 'chrome', 'edge', 'firefox', 'ios', 'node', 'safari']
+  const SUPPORTED_ESBUILD_TARGETS = [
+    'es',
+    'chrome',
+    'edge',
+    'firefox',
+    'ios',
+    'node',
+    'safari',
+    'opera',
+    'ie',
+  ]
 
   // https://github.com/eBay/browserslist-config/issues/16#issuecomment-863870093
   const UNSUPPORTED = ['android 4']

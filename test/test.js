@@ -6,13 +6,21 @@ const browserslistToEsbuild = require('../src/index.js')
 test('works by passing browsers as array', (t) => {
   const target = browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])
 
-  t.deepEqual(target, ['chrome103', 'edge87', 'firefox115', 'ios12.2', 'safari14.1'])
+  t.deepEqual(target, ['chrome103', 'edge87', 'firefox115', 'ios12.2', 'opera102', 'safari14.1'])
 })
 
 test('works by passing browsers as string', (t) => {
   const target = browserslistToEsbuild('last 2 versions')
 
-  t.deepEqual(target, ['chrome119', 'edge119', 'firefox120', 'ios17', 'safari17.1'])
+  t.deepEqual(target, [
+    'chrome119',
+    'edge119',
+    'firefox120',
+    'ie10',
+    'ios17',
+    'opera103',
+    'safari17.1',
+  ])
 })
 
 test('works by loading package.json config', (t) => {
@@ -27,6 +35,7 @@ test('works by loading package.json config', (t) => {
     'edge87',
     'firefox115',
     'ios12.2',
+    'opera102',
     'safari14.1',
   ])
 
