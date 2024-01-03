@@ -32,7 +32,7 @@
 		"browserslist": "*"
 	},
 	"devDependencies": {
-		"ava": "^3.15.0",
+		"ava": "^6.0.1",
 		"browserslist": "^4.22.2"
 	}
 }
