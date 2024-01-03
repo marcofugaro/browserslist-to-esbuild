@@ -1,6 +1,6 @@
 {
 	"name": "browserslist-to-esbuild",
-	"version": "1.2.0",
+	"version": "2.0.0",
 	"description": "Get esbuild-compatible targets from a browserlist config",
 	"license": "MIT",
 	"repository": "marcofugaro/browserslist-to-esbuild",
