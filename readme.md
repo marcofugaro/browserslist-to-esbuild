@@ -6,6 +6,8 @@ Allows you to use use browserslist and pass the correct browsers to esbuild's [t
 
 ## Install
 
+Make sure you have `browserslist` already installed in your project, then:
+
 ```
 npm install --save-dev browserslist-to-esbuild
 ```
@@ -26,12 +28,12 @@ It will return an esbuild-compatible array of browsers.
 import { build } from 'esbuild'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
 
-build({
+await build({
   entryPoints: ['input.js'],
   outfile: 'output.js',
   bundle: true,
   target: browserslistToEsbuild(), // --> ["chrome79", "edge92", "firefox91", "safari13.1"]
-}).catch(() => process.exit(1))
+})
 ```
 
 Otherwise, you can pass yourself a browserslist array or string to the function.
