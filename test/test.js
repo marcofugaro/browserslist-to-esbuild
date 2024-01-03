@@ -62,3 +62,9 @@ test('no support for android 4', (t) => {
 
   t.deepEqual(target, ['chrome120'])
 })
+
+test('safari TP defaults to latest safari', (t) => {
+  const target = browserslistToEsbuild('safari TP')
+
+  t.deepEqual(target, ['safari17.2'])
+})

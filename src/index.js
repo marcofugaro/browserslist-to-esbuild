@@ -37,6 +37,14 @@ function browserslistToEsbuild(browserslistConfig) {
     browserslist(browserslistConfig)
       // filter out the unsupported ones
       .filter((b) => !UNSUPPORTED.some((u) => b.startsWith(u)))
+      // replaces safari TP with latest safari version
+      .map((b) => {
+        if (b === 'safari TP') {
+          return browserslist('last 1 safari version')[0]
+        }
+
+        return b
+      })
       // transform into ['chrome', '88']
       .map((b) => b.split(separator))
       // replace the similar browser
@@ -63,7 +71,10 @@ function browserslistToEsbuild(browserslistConfig) {
 
         return b
       })
-      // only get the ones supported by esbuild
+      // removes invalid versions that will break esbuild
+      // https://github.com/evanw/esbuild/blob/35c0d65b9d4f29a26176404d2890d1b499634e9f/compat-table/src/caniuse.ts#L119-L122
+      .filter((b) => /^\d+(\.\d+)*$/.test(b[1]))
+      // only get the targets supported by esbuild
       .filter((b) => SUPPORTED_ESBUILD_TARGETS.includes(b[0]))
       // only get the oldest version, assuming that the older version
       // is last in the array
