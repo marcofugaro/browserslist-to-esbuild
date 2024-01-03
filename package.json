@@ -15,12 +15,13 @@
 		"esbuild",
 		"browsers"
 	],
-	"type": "commonjs",
-	"main": "./src/index.js",
-	"exports": "./src/index.js",
-	"types": "./src/index.d.ts",
+	"type": "module",
+	"exports": {
+		"types": "./src/index.d.ts",
+		"default": "./src/index.js"
+	},
 	"engines": {
-		"node": ">=12"
+		"node": ">=16"
 	},
 	"scripts": {
 		"test": "ava"

@@ -1,7 +1,10 @@
-const path = require('path')
-const test = require('ava')
-const sinon = require('sinon')
-const browserslistToEsbuild = require('../src/index.js')
+import path from 'path'
+import { fileURLToPath } from 'url'
+import test from 'ava'
+import sinon from 'sinon'
+import browserslistToEsbuild from '../src/index.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 test('works by passing browsers as array', (t) => {
   const target = browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])

@@ -1,8 +1,8 @@
-const browserslist = require('browserslist')
+import browserslist from 'browserslist'
 
 // convert the browserslist field in package.json to
 // esbuild compatible array of browsers
-function browserslistToEsbuild(browserslistConfig) {
+export default function browserslistToEsbuild(browserslistConfig) {
   if (!browserslistConfig) {
     // the path from where the script is run
     const path = process.cwd()
@@ -92,5 +92,3 @@ function browserslistToEsbuild(browserslistConfig) {
       .map((b) => b.join(''))
   )
 }
-
-module.exports = browserslistToEsbuild
