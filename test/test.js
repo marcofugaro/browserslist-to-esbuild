@@ -27,10 +27,11 @@ test('works by passing browsers as string', (t) => {
 })
 
 test('works by loading package.json config', (t) => {
-  const packageJsonDir = path.resolve(__dirname, './fixtures')
+  const packageJsonDir = path.resolve(__dirname, './fixtures/packageJson')
 
   // makes process.cwd() use that folder
-  const cwdStub = sinon.stub(process, 'cwd').returns(packageJsonDir)
+  if (!t.context.cwd) t.context.cwd = sinon.stub(process, 'cwd')
+  const cwdStub = t.context.cwd.returns(packageJsonDir)
 
   process.env.NODE_ENV = 'production'
   t.deepEqual(browserslistToEsbuild(), [
@@ -44,6 +45,41 @@ test('works by loading package.json config', (t) => {
 
   process.env.NODE_ENV = 'development'
   t.deepEqual(browserslistToEsbuild(), ['chrome120', 'firefox121', 'safari17.2'])
+
+  cwdStub.restore()
+  process.env.NODE_ENV = ''
+})
+
+test('works by loading .browserslist config', (t) => {
+  const browserslistrcDir = path.resolve(__dirname, './fixtures/browserslistrc')
+
+  // makes process.cwd() use that folder
+  if (!t.context.cwd) t.context.cwd = sinon.stub(process, 'cwd')
+  const cwdStub = t.context.cwd.returns(browserslistrcDir)
+
+  t.deepEqual(browserslistToEsbuild(), [
+    'chrome109',
+    'edge119',
+    'firefox119',
+    'ios16.6',
+    'safari16.6',
+  ])
+
+  process.env.BROWSERSLIST_ENV = 'ssr'
+  t.deepEqual(browserslistToEsbuild(), ['node12.22'])
+
+  cwdStub.restore()
+  process.env.BROWSERSLIST_ENV = ''
+})
+
+test('the options argument works', (t) => {
+  const browserslistrcDir = path.resolve(__dirname, './fixtures/browserslistrc')
+
+  // makes process.cwd() use that folder
+  if (!t.context.cwd) t.context.cwd = sinon.stub(process, 'cwd')
+  const cwdStub = t.context.cwd.returns(browserslistrcDir)
+
+  t.deepEqual(browserslistToEsbuild(undefined, { env: 'ssr' }), ['node12.22'])
 
   cwdStub.restore()
 })

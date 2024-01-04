@@ -2,13 +2,13 @@ import browserslist from 'browserslist'
 
 // convert the browserslist field in package.json to
 // esbuild compatible array of browsers
-export default function browserslistToEsbuild(browserslistConfig) {
+export default function browserslistToEsbuild(browserslistConfig, options = {}) {
   if (!browserslistConfig) {
     // the path from where the script is run
     const path = process.cwd()
 
     // read config if none is passed
-    browserslistConfig = browserslist.loadConfig({ path })
+    browserslistConfig = browserslist.loadConfig({ path, ...options })
   }
 
   const SUPPORTED_ESBUILD_TARGETS = [
@@ -34,7 +34,7 @@ export default function browserslistToEsbuild(browserslistConfig) {
   const separator = ' '
 
   return (
-    browserslist(browserslistConfig)
+    browserslist(browserslistConfig, options)
       // filter out the unsupported ones
       .filter((b) => !UNSUPPORTED.some((u) => b.startsWith(u)))
       // replaces safari TP with latest safari version
