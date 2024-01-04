@@ -44,13 +44,19 @@ browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])
 
 ## API
 
-### browserslistToEsbuild(browserslistConfig?)
+### browserslistToEsbuild(browserslistConfig?, options?)
 
 #### browserslistConfig
 
 Type: `array | string | undefined`
 
 An array of string of browsers [compatible with browserslist](https://github.com/browserslist/browserslist#full-list). If none is passed, a browserslist config is searched in the script running directory.
+
+#### options
+
+Type: `object | undefined`
+
+An object containing the options that will be forwarded to browserslist. You can check out the [browserslist options documentation](https://github.com/browserslist/browserslist?tab=readme-ov-file#js-api) to see all the options available.
 
 ## CLI
 
