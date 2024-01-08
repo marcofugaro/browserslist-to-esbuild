@@ -6,16 +6,16 @@ Allows you to use use browserslist and pass the correct browsers to esbuild's [t
 
 ## Install
 
-Make sure you have `browserslist` already installed in your project, then:
+You have to install the `browserslist` package as well in your project:
 
 ```
-npm install --save-dev browserslist-to-esbuild
+npm install --save-dev browserslist browserslist-to-esbuild
 ```
 
 or
 
 ```
-yarn add --dev browserslist-to-esbuild
+yarn add --dev browserslist browserslist-to-esbuild
 ```
 
 ## Usage
