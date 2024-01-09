@@ -36,10 +36,10 @@ await build({
 })
 ```
 
-Otherwise, you can pass yourself a browserslist array or string to the function.
+Otherwise, you can pass yourself a browserslist string or array to the function.
 
 ```js
-browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])
+browserslistToEsbuild('>0.2%, not dead')
 ```
 
 ## API
@@ -48,9 +48,9 @@ browserslistToEsbuild(['>0.2%', 'not dead', 'not op_mini all'])
 
 #### browserslistConfig
 
-Type: `array | string | undefined`
+Type: `string | string[] | undefined`
 
-An array of string of browsers [compatible with browserslist](https://github.com/browserslist/browserslist#full-list). If none is passed, a browserslist config is searched in the script running directory.
+A string or array of strings of browsers [compatible with browserslist](https://github.com/browserslist/browserslist#full-list). If none is passed, a browserslist config is searched in the script running directory.
 
 #### options
 
