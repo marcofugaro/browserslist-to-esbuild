@@ -2,7 +2,7 @@
 
 > Use [browserslist](https://github.com/browserslist/browserslist) with [esbuild](https://esbuild.github.io/).
 
-Allows you to use use browserslist and pass the correct browsers to esbuild's [target](https://esbuild.github.io/api/#target) option.
+Allows you to use browserslist and pass the correct browsers to esbuild's [target](https://esbuild.github.io/api/#target) option.
 
 ## Install
 
